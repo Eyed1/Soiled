@@ -14,7 +14,7 @@ interface FormData {
   rainfall: string;
 }
 
-export const DirtForm = () => {
+function DirtForm() {
   const url = "http://127.0.0.1:5000/form_submit";
   const [data, setData] = useState<FormData>({
     nitrogen: "",
@@ -113,8 +113,9 @@ export const DirtForm = () => {
       </form>
     </div>
   );
-};
+}
 
+export default DirtForm;
 //rainfall mm/day
 //temperature F
 //pH

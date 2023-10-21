@@ -1,0 +1,35 @@
+{
+  "hash": "ed4f7cc7",
+  "browserHash": "ad0a5281",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "6f97be94",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "5b8764da",
+      "needsInterop": true
+    },
+    "react-hook-form": {
+      "src": "../../node_modules/react-hook-form/dist/index.esm.mjs",
+      "file": "react-hook-form.js",
+      "fileHash": "9247511f",
+      "needsInterop": false
+    },
+    "@hookform/devtools": {
+      "src": "../../node_modules/@hookform/devtools/dist/index.esm.js",
+      "file": "@hookform_devtools.js",
+      "fileHash": "758b3736",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-L7APZED3": {
+      "file": "chunk-L7APZED3.js"
+    }
+  }
+}
