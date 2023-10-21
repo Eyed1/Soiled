@@ -6,8 +6,8 @@ import farm from "./farm.jpeg";
 function App() {
   return (
     <div>
-      <h1>Soil!!!!!</h1>
-      <img className = "farm-image" src={farm} alt="My Image" />
+      {/* <h1>Soil!!!!!</h1>
+      <img className = "farm-image" src={farm} alt="My Image" /> */}
       <DirtForm />
     </div>
   );

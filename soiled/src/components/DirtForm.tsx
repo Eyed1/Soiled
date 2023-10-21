@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
+import farm from "../farm.jpeg"
 
 let renderCount = 0;
 
@@ -23,6 +24,7 @@ export const DirtForm = () => {
   return (
     <div className="form-container">
       <h1>Dirt Form</h1>
+      <img className = "farm-image" src={farm} alt="My Image" />
       <hr />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-row">
@@ -67,6 +69,8 @@ export const DirtForm = () => {
             <input type="date" id="date" {...register("date")} />
           </div>
         </div>
+
+        <hr />
 
         <button type="submit">Submit</button>
       </form>

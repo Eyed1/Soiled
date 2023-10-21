@@ -34,13 +34,13 @@ input:focus {
   border: 2px solid #007bff; /* Change border color to a highlight color (e.g., blue) */
   outline: none; /* Remove the default focus outline (optional) */
   /* Add any other styles you want to apply when the input is focused */
-}
+} 
 
 
 .form-container {
   text-align: center;
-  border: 10px solid #39d766; /* Add a border around the container */
-  padding: 20px; /* Add padding to create space between the border and form elements */
+  border: 10px solid #43b12d; /* Add a border around the container */
+  padding: 10px; /* Add padding to create space between the border and form elements */
   border-radius: 10px; /* Add rounded corners to the border */
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
@@ -57,4 +57,18 @@ input:focus {
 
 .farm-image{
   margin-bottom: 30px;
+}
+
+button[type="submit"] {
+  border: none; /* Remove default button border */
+  border-radius: 10px; /* Adjust the radius to control the roundness */
+  background-color: #43b12d; /* Change the background color */
+  color: #fff; /* Change the text color */
+  padding: 10px 20px; /* Add padding to control button size */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Add a smooth color transition */
+}
+
+button[type="submit"]:hover {
+  background-color: #449035; /* Change the background color on hover */
 }
