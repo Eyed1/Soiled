@@ -7,7 +7,7 @@ import os
 sys.path.append('./backend')
 import predictor
 
-app = Flask(__name__, static_url_path='', static_folder='form')
+app = Flask(__name__, static_url_path='', static_folder='./soiled')
 CORS(app)
 api = Api(app)
 
@@ -15,16 +15,17 @@ api = Api(app)
 def serve(path):
     return send_from_directory(app.static_folder,'index.html')
 
-@app.route("/form_submit", methods=['POST'], strict_slashes=False)
+@app.route("/form_submit", methods=['GET', 'POST'], strict_slashes=False)
 def get_form():
     date = request.json()['date']
-    nitrogen = request.json()['nitrogen']
-    phosphorus = request.json()['phosphorus']
-    potassium = request.json()['potassium']
-    pH = request.json()['pH']
-    temperature = request.json()['temperature']
-    rainfall = request.json()['rainfall']
-    return predictor.get_prediction(nitrogen, phosphorus, potassium, pH, temperature, rainfall)
+    nitrogen = float(request.json()['nitrogen'])
+    phosphorus = float(request.json()['phosphorus'])
+    potassium = float(request.json()['potassium'])
+    pH = float(request.json()['pH'])
+    temperature = float(request.json()['temperature'])
+    rainfall = float(request.json()['rainfall'])
+
+    return predictor.get_prediction(date, nitrogen, phosphorus, potassium, pH, temperature, rainfall)
 
 
 
