@@ -109,8 +109,13 @@ export const DirtForm = () => {
           id="rainfall"
         />
 
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
 };
+
+//rainfall mm/day
+//temperature F
+//pH
+//levels mg/kg soil
