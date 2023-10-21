@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -14,9 +14,11 @@ label {
 input[type="text"],
 input[type="email"]
 input[type="number"]
-input[type="data"]{
+input[type="data"]
+input[type="date"]{
   display: block;
-  width: 400px;
+  width: 300px;
+  height: 40px;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -26,4 +28,33 @@ input[type="data"]{
   border-radius: 4px;
   margin: auto;
   margin-bottom: 20px;
+}
+
+input:focus {
+  border: 2px solid #007bff; /* Change border color to a highlight color (e.g., blue) */
+  outline: none; /* Remove the default focus outline (optional) */
+  /* Add any other styles you want to apply when the input is focused */
+}
+
+
+.form-container {
+  text-align: center;
+  border: 10px solid #39d766; /* Add a border around the container */
+  padding: 20px; /* Add padding to create space between the border and form elements */
+  border-radius: 10px; /* Add rounded corners to the border */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.form-field {
+  flex: 1;
+}
+
+.farm-image{
+  margin-bottom: 30px;
 }
