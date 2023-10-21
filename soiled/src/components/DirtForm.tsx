@@ -52,6 +52,24 @@ export const DirtForm = () => {
       });
   }
 
+  function submit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    Axios.post(url, {
+      nitrogen: data.nitrogen,
+      phosphorous: data.phosphorous,
+      potassium: data.potassium,
+      date: data.date,
+      pH: data.pH,
+      temperature: data.temperature,
+      rainfall: data.rainfall,
+    })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   return (
     <div className="form-container">
       <h1>Dirt Form</h1>
