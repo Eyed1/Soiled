@@ -17,8 +17,8 @@ input[type="number"]
 input[type="data"]
 input[type="date"]{
   display: block;
-  width: 300px;
-  height: 40px;
+  width: 320px;
+  height: 50px;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -67,6 +67,8 @@ button[type="submit"] {
   padding: 10px 20px; /* Add padding to control button size */
   cursor: pointer;
   transition: background-color 0.3s; /* Add a smooth color transition */
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 button[type="submit"]:hover {

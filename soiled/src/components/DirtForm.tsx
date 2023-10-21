@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
+import React, { useState } from "react";
+import Axios from "axios";
+import { FormEvent } from "react";
 import farm from "../farm.jpeg"
 
-let renderCount = 0;
-
-type FormValues = {
+interface FormData {
   nitrogen: string;
   phosphorous: string;
   potassium: string;
@@ -12,61 +13,126 @@ type FormValues = {
   pH: string;
   temperature: string;
   rainfall: string;
-};
-export const DirtForm = () => {
-  const form = useForm();
-  const { register, control, handleSubmit } = form;
+}
 
-  const onSubmit = (data) => {
-    console.log("Form submitted", data);
-  };
+export const DirtForm = () => {
+  const url = "http://127.0.0.1:5000/form_submit";
+  const [data, setData] = useState<FormData>({
+    nitrogen: "",
+    phosphorous: "",
+    potassium: "",
+    date: "",
+    pH: "",
+    temperature: "",
+    rainfall: "",
+  });
+  function handle(event: React.ChangeEvent<HTMLInputElement>) {
+    const newdata: FormData = { ...data };
+    newdata[event.target.id as keyof typeof data] = event.target.value;
+    setData(newdata);
+    console.log(newdata);
+  }
+
+  function submit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    Axios.post(url, {
+      nitrogen: data.nitrogen,
+      phosphorous: data.phosphorous,
+      potassium: data.potassium,
+      date: data.date,
+      pH: data.pH,
+      temperature: data.temperature,
+      rainfall: data.rainfall,
+    })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   return (
     <div className="form-container">
       <h1>Dirt Form</h1>
-      <img className = "farm-image" src={farm} alt="My Image" />
+      <img className="farm-image" src={farm} alt="My Image" />
       <hr />
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={(event) => submit(event)}>
         <div className="form-row">
           <div className="form-field">
             <label htmlFor="nitrogen">Nitrogen Levels</label>
-            <input type="text" id="nitrogen" {...register("nitrogen")} />
+            <input
+              onChange={(event) => handle(event)}
+              value={data.nitrogen}
+              type="text"
+              id="nitrogen"
+            />
           </div>
 
           <div className="form-field">
             <label htmlFor="phosphorous">Phosphorous Levels</label>
-            <input type="text" id="phosphorous" {...register("phosphorous")} />
+            <input
+              onChange={(event) => handle(event)}
+              value={data.phosphorous}
+              type="text"
+              id="phosphorous"
+            />
           </div>
         </div>
 
         <div className="form-row">
           <div className="form-field">
             <label htmlFor="potassium">Potassium Levels</label>
-            <input type="text" id="potassium" {...register("potassium")} />
+            <input
+              onChange={(event) => handle(event)}
+              value={data.potassium}
+              type="text"
+              id="potassium"
+            />
           </div>
 
           <div className="form-field">
             <label htmlFor="rainfall">Average Rainfall</label>
-            <input type="text" id="rainfall" {...register("rainfall")} />
+            <input
+              onChange={(event) => handle(event)}
+              value={data.rainfall}
+              type="text"
+              id="rainfall"
+            />
           </div>
         </div>
 
         <div className="form-row">
           <div className="form-field">
             <label htmlFor="pH">pH levels</label>
-            <input type="text" id="pH" {...register("pH")} />
+            <input
+              onChange={(event) => handle(event)}
+              value={data.pH}
+              type="text"
+              id="pH"
+            />
           </div>
 
           <div className="form-field">
             <label htmlFor="temperature">Temperature</label>
-            <input type="text" id="temperature" {...register("temperature")} />
+            <input
+              onChange={(event) => handle(event)}
+              value={data.temperature}
+              type="text"
+              id="temperature"
+            />
           </div>
         </div>
 
         <div className="form-row">
           <div className="form-field">
             <label htmlFor="date">Date</label>
-            <input type="date" id="date" {...register("date")} />
+            <input
+              onChange={(event) => handle(event)}
+              value={data.date}
+              type="date"
+              id="date"
+            />
           </div>
         </div>
 
@@ -74,17 +140,16 @@ export const DirtForm = () => {
 
         <button type="submit">Submit</button>
       </form>
-      <div className="form-row">
+      {/* <div className="form-row">
         <div className="form-field">
           <input type="reset" value="Reset" />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
 
-
 //rainfall mm/day
 //temperature F
-//pH 
+//pH
 //levels mg/kg soil
