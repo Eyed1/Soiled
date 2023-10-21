@@ -13,41 +13,74 @@ type FormValues = {
   rainfall: string;
 };
 export const DirtForm = () => {
-  const form = useForm<FormValues>();
+  const form = useForm();
   const { register, control, handleSubmit } = form;
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data) => {
     console.log("Form submitted", data);
   };
-  renderCount++;
+
   return (
-    <div>
-      <h1>Dirt Form ({renderCount / 2})</h1>
+    <div className="form-container">
+      <h1>Dirt Form</h1>
+      <hr />
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="nitrogen">Nitrogen Levels</label>
-        <input type="text" id="nitrogen" {...register("nitrogen")} />
+        <div className="form-row">
+          <div className="form-field">
+            <label htmlFor="nitrogen">Nitrogen Levels</label>
+            <input type="text" id="nitrogen" {...register("nitrogen")} />
+          </div>
 
-        <label htmlFor="phosphorous">Phosphorous Levels</label>
-        <input type="text" id="phosphorous" {...register("phosphorous")} />
+          <div className="form-field">
+            <label htmlFor="phosphorous">Phosphorous Levels</label>
+            <input type="text" id="phosphorous" {...register("phosphorous")} />
+          </div>
+        </div>
 
-        <label htmlFor="potassium">Potassium Levels</label>
-        <input type="text" id="potassium" {...register("potassium")} />
+        <div className="form-row">
+          <div className="form-field">
+            <label htmlFor="potassium">Potassium Levels</label>
+            <input type="text" id="potassium" {...register("potassium")} />
+          </div>
 
-        <label htmlFor="date">Date</label>
-        <input type="date" id="date" {...register("date")} />
+          <div className="form-field">
+            <label htmlFor="rainfall">Average Rainfall</label>
+            <input type="text" id="rainfall" {...register("rainfall")} />
+          </div>
+        </div>
 
-        <label htmlFor="pH">pH levels</label>
-        <input type="text" id="pH" {...register("pH")} />
+        <div className="form-row">
+          <div className="form-field">
+            <label htmlFor="pH">pH levels</label>
+            <input type="text" id="pH" {...register("pH")} />
+          </div>
 
-        <label htmlFor="temperature">Temperature</label>
-        <input type="text" id="temperature" {...register("temperature")} />
+          <div className="form-field">
+            <label htmlFor="temperature">Temperature</label>
+            <input type="text" id="temperature" {...register("temperature")} />
+          </div>
+        </div>
 
-        <label htmlFor="rainfall">Average Rainfall</label>
-        <input type="text" id="rainfall" {...register("rainfall")} />
+        <div className="form-row">
+          <div className="form-field">
+            <label htmlFor="date">Date</label>
+            <input type="date" id="date" {...register("date")} />
+          </div>
+        </div>
 
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
-      <DevTool control={control} />
+      <div className="form-row">
+        <div className="form-field">
+          <input type="reset" value="Reset" />
+        </div>
+      </div>
     </div>
   );
 };
+
+
+//rainfall mm/day
+//temperature F
+//pH 
+//levels mg/kg soil
