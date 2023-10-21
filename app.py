@@ -17,6 +17,7 @@ def serve(path):
 
 @app.route("/form_submit", methods=['POST'], strict_slashes=False)
 def get_form():
+    date = request.json()['date']
     nitrogen = request.json()['nitrogen']
     phosphorus = request.json()['phosphorus']
     potassium = request.json()['potassium']
