@@ -14,7 +14,8 @@ label {
 input[type="text"],
 input[type="email"]
 input[type="number"]
-input[type="data"]{
+input[type="data"]
+input[type="date"]{
   display: block;
   width: 400px;
   padding: 6px 12px;
